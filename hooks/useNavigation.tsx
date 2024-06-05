@@ -1,4 +1,4 @@
-import { MessageSquare, Users } from "lucide-react"
+import { MessageSquare, LayoutList} from "lucide-react"
 import { usePathname } from "next/navigation"
 import { useMemo } from "react"
 
@@ -15,7 +15,7 @@ export const useNavigation = () => {
         {
             name: "Tasks",
             href: "/tasks",
-            icon: <Users />,
+            icon: <LayoutList />,
             active: pathname === "/tasks",
         }
     ], [pathname])
