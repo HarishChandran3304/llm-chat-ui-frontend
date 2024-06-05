@@ -1,10 +1,17 @@
+import ConversationFallback from '@/components/shared/conversation/ConversationFallback'
+import TaskList from '@/components/shared/task-list/TaskList'
 import React from 'react'
 
 type Props = {}
 
 const Tasks = (props: Props) => {
   return (
-    <div>Tasks</div>
+    <>
+      <TaskList title="Tasks">
+        Tasks Page
+      </TaskList>
+      <ConversationFallback />
+    </>
   )
 }
 

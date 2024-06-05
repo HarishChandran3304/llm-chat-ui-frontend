@@ -1,10 +1,16 @@
+import TaskList from '@/components/shared/task-list/TaskList'
 import React from 'react'
 
 type Props = React.PropsWithChildren<{}>
 
 const ConversationsLayout = ({ children }: Props) => {
   return (
-    <div>{children}</div>
+    <>
+      <TaskList title='Conversations'>
+        Conversations Page
+      </TaskList>
+      {children}
+    </>
   )
 }
 
