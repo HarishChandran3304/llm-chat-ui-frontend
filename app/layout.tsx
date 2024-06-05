@@ -17,7 +17,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}><TooltipProvider>{children}</TooltipProvider></body>
+      <body className={inter.className}>{children}</body>
     </html>
   );
 }
