@@ -13,17 +13,13 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '
 import { Input } from '@/components/ui/input';
 
 
-
-type Props = {}
-
 const AddTaskSchema = z.object({
     text: z
     .string().min(1, {message: "Task must be at least 1 character long"})
     .max(255, {message: "Task must be at most 255 characters long"})
 })
 
-const AddTaskDialog = (props: Props) => {
-
+const AddTaskDialog = () => {
     const form = useForm<z.infer<typeof AddTaskSchema>>({
         resolver: zodResolver(AddTaskSchema),
         defaultValues: {
@@ -31,7 +27,30 @@ const AddTaskDialog = (props: Props) => {
         }
     })
 
-    const handleSubmit = () => {};
+    const apiURL = "http://127.0.0.1:8000/tasks"
+
+    const handleSubmit = async (values: z.infer<typeof AddTaskSchema>) => {
+        try {
+            const response = await fetch(apiURL, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(values)
+            })
+
+            form.reset()
+            window.location.reload()
+
+            if (response.ok) {
+                console.log("Task added")
+            } else {
+                console.log("Task not added")
+            }
+        } catch (error) {
+            console.error(error)
+        }
+    }
 
   return (
     <Dialog>
