@@ -1,11 +1,42 @@
+"use client";
+
 import ConversationContainer from '@/components/shared/conversation/ConversationContainer'
-import React from 'react'
+import React, { useState, useEffect } from 'react'
+import Header from './_components/Header';
+import Body from './_components/Body';
+import ChatInput from './_components/ChatInput';
 
-type Props = {}
+type Props = {
+  params: {
+    conversationID: string
+  }
+}
 
-const ConversationPage = (props: Props) => {
+const ConversationPage = ({ params: { conversationID } }: Props) => {
+  const apiurl = "http://127.0.0.1:8000/conversations";
+
+  const [conversation, setConversation] = useState([]);
+
+  const fetchConversation = async () => {
+    try {
+      const response = await fetch(`${apiurl}/${conversationID}`);
+      const data = await response.json();
+      setConversation(data);
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+  useEffect(() => {
+    fetchConversation();
+  }, []);
+
   return (
-    <ConversationContainer>ConversationPage</ConversationContainer>
+    <ConversationContainer>
+      <Header id={conversationID}/>
+      <Body />
+      <ChatInput />
+    </ConversationContainer>
   )
 }
 
