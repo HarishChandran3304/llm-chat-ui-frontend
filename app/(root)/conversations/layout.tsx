@@ -7,7 +7,7 @@ import ConversationItem from './_components/ConversationItem';
 type Props = React.PropsWithChildren<{}>
 
 const ConversationsLayout = ({ children }: Props) => {
-  const apiURL = "http://localhost:8000/conversations"
+  const apiURL = `${process.env.NEXT_PUBLIC_API_URL}/conversations`
   const [conversations, setConversations] = useState([])
 
   const fetchConversations = async () => {

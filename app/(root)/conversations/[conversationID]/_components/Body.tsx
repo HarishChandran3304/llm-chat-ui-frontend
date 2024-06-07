@@ -7,7 +7,7 @@ import Message from './Message';
 type Props = {}
 
 const Body = (props: Props) => {
-  const apiURL = "http://127.0.0.1:8000/conversations";
+  const apiURL = `${process.env.NEXT_PUBLIC_API_URL}/conversations`;
   const { conversationID } = useParams();
   const [prompts, setPrompts] = useState([]);
   const [responses, setResponses] = useState([]);

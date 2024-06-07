@@ -18,7 +18,7 @@ const chatMessageSchema = z.object({
 
 const ChatInput = () => {
     const { conversationID } = useParams()
-    const apiURL = "http://127.0.0.1:8000/conversations"
+    const apiURL = `${process.env.NEXT_PUBLIC_API_URL}/conversations`
     const textareaRef = useRef<HTMLTextAreaElement | null> (null)
 
     const form = useForm<z.infer<typeof chatMessageSchema>>({

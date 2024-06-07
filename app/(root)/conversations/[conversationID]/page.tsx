@@ -13,7 +13,7 @@ type Props = {
 }
 
 const ConversationPage = ({ params: { conversationID } }: Props) => {
-  const apiurl = "http://127.0.0.1:8000/conversations";
+  const apiurl = `${process.env.NEXT_PUBLIC_API_URL}/conversations`
 
   const [conversation, setConversation] = useState([]);
 

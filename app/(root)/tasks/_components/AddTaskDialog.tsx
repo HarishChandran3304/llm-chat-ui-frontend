@@ -27,7 +27,7 @@ const AddTaskDialog = () => {
         }
     })
 
-    const apiURL = "http://127.0.0.1:8000/tasks"
+    const apiURL = `${process.env.NEXT_PUBLIC_API_URL}/tasks`;
 
     const handleSubmit = async (values: z.infer<typeof AddTaskSchema>) => {
         try {
