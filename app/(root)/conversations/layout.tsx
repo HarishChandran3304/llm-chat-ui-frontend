@@ -29,8 +29,8 @@ const ConversationsLayout = ({ children }: Props) => {
     <>
       <TaskList title='Conversations'>
         {
-          Object.keys(conversations).map((conversationId: string) => {
-            return <ConversationItem id={conversationId} />
+          Object.keys(conversations).map((conversationId: string, index: number) => {
+            return <ConversationItem key={index} id={conversationId} />
           })
         }
       </TaskList>

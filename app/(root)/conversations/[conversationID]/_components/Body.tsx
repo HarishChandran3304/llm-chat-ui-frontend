@@ -41,7 +41,7 @@ const Body = (props: Props) => {
     <div className='flex-1 w-full flex overflow-y-scroll flex-col gap-2 p-3 no-scrollbar'>
       {messages.map((message, index) => {
         return (
-          <Message isPrompt={index % 2 === 0} message={message} />
+          <Message key={index} isPrompt={index % 2 === 0} message={message} />
         )
       })}
     </div>

@@ -35,7 +35,7 @@ const Tasks = (props: Props) => {
         {
           // Display the tasks here
           tasks.map((task: string, index: number) => {
-            return <Task text={task} idx={index} />
+            return <Task key={index} text={task} idx={index} />
           })
         }
       </TaskList>
